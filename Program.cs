@@ -21,15 +21,6 @@ while (x <= b)
         sum = sum + 0;
     }
     x += 1;
-    if (x % 2 != 0)
-    {
-        sum = sum + x;
-    }
-    else
-    {
-        sum = sum + 1;
-    }
-    x += 1;
 }
 
 Console.WriteLine($"So the Sum Of even Number is = {sum}");
