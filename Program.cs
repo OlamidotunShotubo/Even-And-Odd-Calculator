@@ -1,28 +1,35 @@
-﻿Console.WriteLine("PLS INPUT THE RANGE OF NUMBER IN THIS FORMAT (X - Y)");
-var Range = Console.ReadLine();
-var elements = Range.Split(' ');
-var x = int.Parse(elements[0]);
-var space = elements[1];
-var b = int.Parse(elements[2]);
-var sum = 0;
-if (x > b)
-{
-    Console.WriteLine("INVALID ENTRY");
-}
+﻿Console.WriteLine("PLS INPUT THE RANGE OF NUMBER IN THIS FORMAT (X-Y) OR (X Y)");
 
-while (x <= b)
+do
 {
-    if (x % 2 == 0)
+    var Range = Console.ReadLine();
+    var elements = Range.Split(' ', '-');
+    var firstno = int.Parse(elements[0]);
+    var lastno = int.Parse(elements[1]);
+    var sumeven = 0;
+    var sumodd = 0;
+    if (firstno > lastno)
     {
-        sum = sum + x;
+        Console.WriteLine("INVALID ENTRY");
     }
-    else
+    while (firstno <= lastno)
     {
-        sum = sum + 0;
+        if (firstno % 2 != 0)
+        {
+            sumodd += firstno;
+        }
+        if (firstno % 2 == 0)
+        {
+            sumeven += firstno;
+        }
+        firstno += 1;
     }
-    x += 1;
-}
+    Console.WriteLine($"The Sum Of even Number is = {sumeven}");
+    Console.WriteLine($"The Sum Of odd Number is = {sumodd}");
+    Console.WriteLine("TYPE 'R' TO REVERT");
+} while (Console.ReadLine() == "r");
 
-Console.WriteLine($"So the Sum Of even Number is = {sum}");
+
+
 Console.Read();
 
